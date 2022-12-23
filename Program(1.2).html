@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<div id="my-element"></div>
+
+
+
+<script type="text/javascript">
+	
+function getElementById(id) {
+  // Get a reference to the document object
+  var doc = document;
+
+  // Check if the provided id is a string or not
+  if (typeof id !== 'string') {
+    return null;
+  }
+
+  //The built-in getElementById function to retrieve the element
+console.log(doc.getElementById(id));
+}
+/*This function takes an id as an argument, checks if it is a string, and then uses the built-in getElementById function to retrieve the element with the specified id from the document. If the id is not a string, the function returns null.
+
+You can use this function in the following way:*/
+
+// Get the element with the id "my-element"
+var element = getElementById('my-element');
+
+//displays the particular element who's id is 'my-element' in console
+
+</script>
+
+</body>
+
+
+</html>
