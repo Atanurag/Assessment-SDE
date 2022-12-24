@@ -111,16 +111,230 @@ console.log("No grade");
 
 // 6 Recursion
 
-/*A function that calls itself is called a recursive function.*/
+/* The function name fact takes one argument and return
+ specific value or values after some operations.
+/* At bottom fact() is called with number
+ 5 as an argument from the same function
+  recursive call. In each recursive call, the value of argument n is decreased by 1.
 
-/*function Recursion() {
-    // function code
-    Recursion();
-    // function code
+When the value of n is equals to 0 there 
+is no recursive call and the factorial of
+ given number  is returned  from the fact function*/
+function fact(n){
+    if(n==0){
+        return 1;
+    }
+    console.log(n)
+    return n*fact(n-1);
 }
-Recursion();*/
+console.log(fact(5))
+//1 2 3 4 5 120
 
 
+
+
+
+// 7 javascript BST
+/*A binary search tree
+ (BST) is a type of
+  data structure that 
+  allows for fast 
+  insertion and search
+   operations. It is called
+    a "binary search tree"
+     because each node has 
+     at most two children 
+     and the left child of 
+     a node has
+      a value 
+      less than 
+      the node's 
+      value, 
+      while the
+       right 
+       child has
+        a value 
+        greater than the node's value.
+
+simple structure of bst  
+
+        5
+       /\
+      3  10
+     /    \
+     1    14
+
+*/
+
+class Node { constructor(value) { this.value = value; this.left = null; this.right = null; } }
+
+ class BinarySearchTree { constructor() { this.root = null; } 
+ insert(value) { const newNode = new Node(value);
+
+  if (this.root === null) { this.root = newNode; return this; }
+
+   let current = this.root;
+    while (true) { if (value === current.value) return undefined;
+
+     if (value < current.value) { if (current.left === null) { current.left = newNode; return this; }
+
+     current = current.left; } else { if (current.right === null) { current.right = newNode; return this; }
+
+      current = current.right; } } } 
+      find(value) 
+      { if (this.root === null) return false;
+
+       let current = this.root, found = false;
+
+        while (current && !found) 
+            { if (value < current.value) 
+                { current = current.left; } 
+                else if (value > current.value)
+                 { current = current.right; } 
+             else { found = true; } } 
+
+             if (!found) return undefined; return current; } 
+
+             contains(value) { if (this.root === null) return false;
+
+              let current = this.root, found = false; while (current && !found) 
+              { if (value < current.value) { current = current.left; }
+               else if (value > current.value) { current = current.right; }
+
+  else { return true; } } return false; } }
+
+
+
+
+
+
+//The breakdown of code
+
+
+
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+/*The Node class represents 
+a single node in the tree. It has
+ a value property for storing the
+  node's value, and left and 
+  right properties for storing
+   references to its left and 
+   right child nodes (which are 
+    also Node objects).
+*/
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    const newNode = new Node(value);
+    if (this.root === null) {
+      this.root = newNode;
+      return this;
+    }
+    let current = this.root;
+    while (true) {
+      if (value === current.value) return undefined;
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return this;
+        }
+        current = current.left;
+      } else {
+        if (current.right === null) {
+          current.right = newNode;
+          return this;
+        }
+        current = current.right;
+      }
+    }
+  }
+/*
+The BinarySearchTree 
+class represents the
+ tree itself. It has
+  a root property that 
+  points to the root
+   node of the tree 
+   (which is a Node object).
+
+The insert method adds
+ a new node to the tree
+  with the given value.
+   If the tree is empty,
+    the new node becomes
+     the root of the 
+     tree. Otherwise,
+      the method traverses
+       the tree starting 
+       from the root and 
+       finds the correct
+        position for the
+  new node based on its
+   value. If the
+    value is less than 
+    the current node's
+     value, it goes to
+      the left child; 
+      if the value is 
+        greater than
+         the current
+          node's value,
+           it goes to the
+            right child. 
+            This continues
+             until it finds
+              an empty spot 
+              where it can insert the new node.
+
+*/
+
+  find(value) {
+    if (this.root === null) return false;
+    let current = this.root,
+      found = false;
+    while (current && !found) {
+      if (value < current.value) {
+        current = current.left;
+      } else if (value > current.value) {
+        current = current.right;
+      } else {
+        found = true;
+      }
+    }
+    if (!found) return undefined;
+    return current;
+  }
+}/*
+The find method 
+searches for a 
+node with the
+ given value and returns
+  it if it exists. It 
+  starts at the root of 
+  the tree and traverses
+   the tree in a similar 
+   way to the insert method, 
+looking at the values of 
+the nodes as it goes. If
+ it finds a node with the
+  given value, it returns it.
+   If it reaches a leaf 
+   node without finding
+    the value, it returns
+     undefined.
+
+*/
 
 
 
